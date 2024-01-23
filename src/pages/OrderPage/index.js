@@ -4,13 +4,13 @@ import { Navigate, useNavigate } from "react-router-dom";
 import OrdersList from "./orders-list/OrdersList";
 
 function OrderPage() {
-  const { fetchLogin, login, isAuthenticated, isAdmin } =
+  const { isAuthenticated } =
     useContext(LoginContext);
 
   // 권한없으면 뒤로 가기
-  // if (!isAuthenticated()) {
-  //   return <Navigate to={"/"} replace />;
-  // }
+  if (!isAuthenticated()) {
+    return <Navigate to={"/"} replace />;
+  }
   return (
     <div className="page">
       <div className="container">

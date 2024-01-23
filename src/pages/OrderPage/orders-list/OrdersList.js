@@ -9,25 +9,26 @@ function OrdersList(props) {
   const { order } = useAppSelector((state) => state.orderSlice);
   const dispatch = useAppDispatch();
 
-  // const { fetchLogin, login, isAuthenticated, isAdmin } =
-  //   useContext(LoginContext);
-  // useEffect(() => {
-  //   dispatch(fetchOrder(login.id))
-  // }, [login.id]);
+  const {login } =
+    useContext(LoginContext);
+
+  useEffect(() => {
+    dispatch(fetchOrder(login.email))
+  }, [login.email]);
 
   if (!order.length) return <CartEmpty title={"주문내역"} />;
   return (
     <div className={styles.orders}>
       {order.map((item) => (
-        <div key={item.id}>
+        <div key={item.no}>
           <div className={styles.order_header}>
-            <h3>주문 번호_{item.id}</h3>
-            <p>합계 : $ {item.totalPrice.toFixed(2)}</p>
+            <h3>주문 번호_{item.no}</h3>
+            <p>합계 :  {item.totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원</p>
           </div>
 
           <ul className={styles.orders_list}>
             {item.products.map((order) => (
-              <OrderItem key={order.id} order={order} />
+              <OrderItem key={order.no} order={order} />
             ))}
           </ul>
         </div>

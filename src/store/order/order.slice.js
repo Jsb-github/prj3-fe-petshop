@@ -3,10 +3,10 @@ import axios from "axios";
 
 export const fetchOrder = createAsyncThunk(
   "order/fetchOrder",
-  async (userId, thunkApi) => {
+  async (email, thunkApi) => {
     try {
       const response = await axios.get(
-        `https://65acea26adbd5aa31bdfbf33.mockapi.io/orders?search=${userId}`,
+        `/api/order/${email}`,
       );
 
       return response.data;

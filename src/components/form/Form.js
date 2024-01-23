@@ -11,7 +11,7 @@ function Form({ title, getDataForm, erromesage }) {
   } = useForm({ mode: "onChange" });
 
   const onSubmit = ({ email, password }) => {
-    console.log(email, password);
+
     getDataForm(email, password);
     reset();
   };

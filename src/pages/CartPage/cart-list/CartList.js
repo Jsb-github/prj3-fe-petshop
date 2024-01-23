@@ -8,7 +8,7 @@ function CartList(props) {
   return (
     <div className={styles.cart_list}>
       {products.map((item) => (
-        <CartItem key={item.id} item={item} />
+        <CartItem key={item.no} item={item} />
       ))}
     </div>
   );

@@ -6,9 +6,9 @@ const initialState = {
     ? JSON.parse(localStorage.getItem("cartProducts") || "")
     : [],
   totalPrice: 0, // 총금액
-  userId: localStorage.getItem("userId")
-    ? JSON.parse(localStorage.getItem("userId") || "")
-    : "", //누구의 카트 유저인지
+  // userId: localStorage.getItem("userId")
+  //   ? JSON.parse(localStorage.getItem("userId") || "")
+  //   : "", //누구의 카트 유저인지
 };
 
 export const postOrder = createAsyncThunk(
@@ -16,7 +16,7 @@ export const postOrder = createAsyncThunk(
   async (order, thunkApi) => {
     try {
       await axios.post(
-        "https://65acea26adbd5aa31bdfbf33.mockapi.io/orders",
+        "/api/order",
         order,
       );
       thunkApi.dispatch(sendOrder());
@@ -52,14 +52,14 @@ export const cartSlice = createSlice({
 
     deleteFromCart: (state, action) => {
       state.products = state.products.filter(
-        (item) => item.id !== action.payload,
+        (item) => item.no !== action.payload,
       );
       localStorage.setItem("cartProducts", JSON.stringify(state.products));
     },
 
     incrementProduct: (state, action) => {
       state.products = state.products.map((item) =>
-        item.id === action.payload
+        item.no === action.payload
           ? {
               ...item,
               quantity: item.quantity + 1,
@@ -72,7 +72,7 @@ export const cartSlice = createSlice({
 
     decrementProduct: (state, action) => {
       state.products = state.products.map((item) =>
-        item.id === action.payload
+        item.no === action.payload
           ? {
               ...item,
               quantity: item.quantity - 1,

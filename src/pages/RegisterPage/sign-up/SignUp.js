@@ -7,11 +7,11 @@ function SignUp() {
   const navigate = useNavigate();
   const [erromesage, setErromesage] = useState();
 
-  const handleSignup = (email, pass) => {
+  const handleSignup = (email, password) => {
     axios
       .post("/api/member/signup", {
         email,
-        pass,
+        password,
       })
       .then(() => navigate("/"))
       .catch((e) => setErromesage("bad"))

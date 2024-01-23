@@ -9,21 +9,21 @@ function NavCartItem({ item }) {
   const dispatch = useAppDispatch();
 
   const deleteProduct = () => {
-    dispatch(deleteFromCart(item.id));
+    dispatch(deleteFromCart(item.no));
   };
 
   return (
     <div className={styles.nav_cart_item}>
-      <Link to={`/product/${item.id}`}>
+      <Link to={`/product/${item.no}`}>
         {" "}
-        <img src={item.image} alt="product card" />
+        <img src={item.url} alt="product card" />
       </Link>
 
       <div className={styles.nav_cart_description}>
         <h3>{item.category}</h3>
         <h2>{item.title}</h2>
         <span>
-          {item.price} X {item.quantity} = $ {item.total.toFixed(2)}
+          {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} X {item.quantity} = {item.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
         </span>
       </div>
 

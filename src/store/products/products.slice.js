@@ -8,13 +8,14 @@ export const fetchProducts = createAsyncThunk(
       let response;
       if (category) {
         console.log("@@#@ : " + category);
-        var encodedCategory = encodeURIComponent(category);
-        // response = await axios.get("http://fakestoreapi.com/products");
+        var category = encodeURIComponent(category);
+
         response = await axios.get(
-          "http://fakestoreapi.com/products/category/" + encodedCategory,
+          `/api/product/category/${category}`,
         );
       } else {
-        response = await axios.get("http://fakestoreapi.com/products");
+       // response = await axios.get("https://fakestoreapi.com/products");
+        response = await axios.get("/api/product");
       }
 
       return response.data;

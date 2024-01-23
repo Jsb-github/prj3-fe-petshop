@@ -16,7 +16,6 @@ function CardList() {
   useEffect(() => {
     dispatch(fetchProducts(category?.toLowerCase()));
   }, [category]);
-  console.log("@!@#" + category);
 
   if (isLoading) {
     return <CardSkeleton />;
@@ -25,7 +24,7 @@ function CardList() {
   return (
     <ul className={styles.card_list}>
       {products.map((product) => (
-        <CardItem key={product.id} item={product} />
+        <CardItem key={product.no} item={product} />
       ))}
     </ul>
   );

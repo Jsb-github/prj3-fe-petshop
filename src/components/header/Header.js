@@ -24,7 +24,7 @@ function Header() {
         <div className={styles.header_wrapper}>
           <div className={styles.header_logo}>
             <Link to={"/"}>
-              <h2>Shop</h2>
+              <h2>Pet Shop</h2>
             </Link>
           </div>
           <Nav />

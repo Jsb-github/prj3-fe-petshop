@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 function OrderItem({ order }) {
   return (
     <li className={styles.order_item}>
-      <Link to={`/product/${order.id}`}>
-        <img src={order.image} alt="product card" />
+      <Link to={`/product/${order.no}`}>
+        <img src={order.url} alt="product card" />
       </Link>
 
       <div className={styles.order_description}>
@@ -16,14 +16,17 @@ function OrderItem({ order }) {
       <div className={styles.order_price}>
         <h4>가격 : </h4>
         <span>
-          $ {order.price} X {order.quantity}{" "}
+         {order.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원 X {order.quantity}{" "}
         </span>
       </div>
 
       <div className={styles.order_total}>
         <h4>합계 : </h4>
-        <span>$ {order.total}</span>
+        <span> {order.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원</span>
       </div>
+      <dv>
+        <button>리뷰작성</button>
+      </dv>
     </li>
   );
 }

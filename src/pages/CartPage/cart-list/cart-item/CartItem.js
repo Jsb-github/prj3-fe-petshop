@@ -14,27 +14,27 @@ function CartItem({ item }) {
   const dispatch = useAppDispatch();
 
   const deleteProduct = () => {
-    dispatch(deleteFromCart(item.id));
+    dispatch(deleteFromCart(item.no));
   };
 
   const incrementCount = () => {
-    dispatch(incrementProduct(item.id));
+    dispatch(incrementProduct(item.no));
   };
 
   const decrmentCount = () => {
-    dispatch(decrementProduct(item.id));
+    dispatch(decrementProduct(item.no));
   };
 
   return (
     <div className={styles.cart_item}>
-      <Link to={`/card/${item.id}`}>
-        <img src={item.image} alt="product card" />
+      <Link to={`/product/${item.no}`}>
+        <img src={item.url} alt="product card" />
       </Link>
       <div className={styles.cart_description}>
         <h3>{item.category}</h3>
         <h2>{item.title}</h2>
         <span>
-          {item.price} X {item.quantity} = $ {item.total.toFixed(2)}
+          {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} X {item.quantity} = {item.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
         </span>
       </div>
       <div className={styles.cart_count}>

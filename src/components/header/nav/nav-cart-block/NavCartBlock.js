@@ -18,7 +18,7 @@ function NavCartBlock(props) {
     <div className={styles.nav_cart_block}>
       <NavCartList />
       <div className={styles.nav_cart_price}>
-        <p>합계 : $ {totalPrice.toFixed(2)}</p>
+        <p>합계 :  {totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원</p>
       </div>
 
       <div className={styles.nav_cart_link}>

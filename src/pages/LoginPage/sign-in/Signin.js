@@ -10,20 +10,14 @@ function Signin() {
   const navigate = useNavigate();
   const [erromesage, setErromesage] = useState();
   const dispatch = useAppDispatch();
-  const handleLogin = (email, pass) => {
+  const handleLogin = (email, password) => {
     axios
       .post("/api/member/login", {
         email,
-        pass,
+        password,
       })
       .then((response) => {
-        dispatch(
-          setUser({
-            email: response.data.email,
-            id: response.data.user.uid,
-          }),
-        );
-        dispatch(setUserId(response.user.uid));
+
         navigate("/");
       })
       .catch((e) => setErromesage("bad"))

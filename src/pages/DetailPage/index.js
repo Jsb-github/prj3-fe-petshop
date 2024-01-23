@@ -14,7 +14,7 @@ function DetailPage() {
 
   const { product, isLoading } = useAppSelector((state) => state.productSlice);
   const { products } = useAppSelector((state) => state.cartSlice);
-  const productMatching = products.some((item) => item.id === product.id);
+  const productMatching = products.some((item) => item.no === product.no);
 
   useEffect(() => {
     dispatch(fetchProduct(productId));
@@ -31,13 +31,13 @@ function DetailPage() {
       ) : (
         <div className={styles.card_wrapper}>
           <div className={styles.card_img}>
-            <img src={product.image} alt="product card" />
+            <img src={product.url} alt="product card" />
           </div>
           <div className={styles.card_description}>
             <h3>{product.category}</h3>
             <h1>{product.title}</h1>
 
-            <h4>${product.price}</h4>
+            <h4>{product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</h4>
             <div>
               <button
                 disabled={productMatching}
