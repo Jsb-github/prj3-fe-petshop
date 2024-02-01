@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Form.module.scss";
+import styles from "./Form.module.scss"
 import { useForm } from "react-hook-form";
 
 function Form({ title, getDataForm, erromesage }) {

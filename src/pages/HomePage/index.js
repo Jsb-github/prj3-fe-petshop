@@ -7,7 +7,6 @@ function HomePage() {
   return (
     <div className="page">
       <div className="container">
-        <h1>PET Products</h1>
         <FiltersCategory />
         <CountProducts />
         <CardList />

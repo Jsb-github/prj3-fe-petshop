@@ -23,7 +23,7 @@ function CardItem({ item }) {
         />
       </Link>
 
-      <h5>{item.title.substring(0, 15)}...</h5>
+      <h5>{item.title.substring(0, 12)}...</h5>
       <div>
         <button
           disabled={productMatching}

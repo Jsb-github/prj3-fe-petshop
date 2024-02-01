@@ -8,7 +8,7 @@ export const fetchProduct = createAsyncThunk(
       const response = await axios.get(
         `/api/product/${id}`,
       );
-      console.log("@!@ ");
+
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue("Error Loading product");

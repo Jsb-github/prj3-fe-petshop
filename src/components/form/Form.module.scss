@@ -28,6 +28,15 @@
     }
   }
 
+  textarea {
+    width: 80%;
+    height: 500px;
+    resize: none;
+    font-size: 26px;
+  }
+
+
+
   button {
     width: 80%;
     margin-top: 10px;
@@ -44,6 +53,10 @@
     }
   }
 }
+
+
+
+
 
 .form_error {
   position: relative;

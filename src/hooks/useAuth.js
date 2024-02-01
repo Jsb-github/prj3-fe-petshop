@@ -27,14 +27,14 @@ function UseAuth({ children }) {
 
   function isAdmin() {
     if (login.auth) {
-      return login.auth.some((elem) => elem.name === "admin");
+      return login.auth.some((elem) => elem.manager === "admin");
     }
 
     return false;
   }
 
   function hasAccess(userId) {
-    return login.id === userId;
+    return login.email === userId;
   }
 
   return (

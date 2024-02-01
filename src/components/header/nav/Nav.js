@@ -37,16 +37,7 @@ export function Nav() {
       });
   }
 
-  // const handleSignOut = () => {
-  //     signOut(auth).then(()=>{
-  //
-  //       dispatch(removeUser());
-  //       dispatch(removeUserId())
-  //     })
-  //       .catch((error)=>{
-  //         console.error(error)
-  //       })
-  // }
+
 
   return (
     <nav className={styles.nav}>

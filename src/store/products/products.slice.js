@@ -7,7 +7,6 @@ export const fetchProducts = createAsyncThunk(
     try {
       let response;
       if (category) {
-        console.log("@@#@ : " + category);
         var category = encodeURIComponent(category);
 
         response = await axios.get(

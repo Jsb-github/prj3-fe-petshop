@@ -44,26 +44,13 @@ function Header() {
               </li>
               <li>
                 <div className={styles.counter}>
-                  <Link to={"/review"}>REVIEW</Link>
-                </div>
-              </li>
-              <li>
-                <div className={styles.counter}>
                   <Link to={"/notice"}>공지 사항</Link>
                 </div>
               </li>
               <li>
                 <div className={styles.counter}>
-                  <Link to={"/qa"}>Q & A</Link>
+                  <Link to={"/review"}>REVIEW</Link>
                 </div>
-              </li>
-              <li>
-                <div className={styles.counter}>
-                  <Link to={"/faq"}>FAQ</Link>
-                </div>
-              </li>
-              <li>
-                <SearchComponent />
               </li>
             </ul>
           </div>

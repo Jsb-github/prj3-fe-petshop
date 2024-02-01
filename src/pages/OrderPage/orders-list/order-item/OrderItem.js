@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./OrderItem.module.scss";
-import { Link } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {Button} from "@chakra-ui/react";
 function OrderItem({ order }) {
+  const navigate = useNavigate();
   return (
     <li className={styles.order_item}>
       <Link to={`/product/${order.no}`}>
@@ -24,9 +26,15 @@ function OrderItem({ order }) {
         <h4>합계 : </h4>
         <span> {order.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원</span>
       </div>
-      <dv>
-        <button>리뷰작성</button>
-      </dv>
+      <div>
+        <Button
+          isDisabled={order.reviewStatus !=0}
+
+          onClick={() => navigate(`/review/write/${order.orderNo}`)}
+        >
+          {order.reviewStatus == 0 ? "리뷰 작성" : "작성완료"}
+        </Button>
+      </div>
     </li>
   );
 }

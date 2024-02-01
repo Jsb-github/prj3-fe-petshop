@@ -17,8 +17,17 @@ import UseAuth from "./hooks/useAuth";
 import EventPage from "./pages/EventPage";
 import ReviewPage from "./pages/ReviewPage";
 import NoticePage from "./pages/NoticePage";
-import FaqPage from "./pages/FaqPage";
-import Q_APage from "./pages/Q_APage";
+import ReviewForm from "./components/form/Review/Form";
+
+import NoticeDetail from "./pages/NoticePage/DetailPage";
+import NoticeEdit from "./pages/NoticePage/EditPage";
+import NoticeRegistration from "./pages/NoticePage/Registration";
+import EventDetail from "./pages/EventPage/DetailPage";
+import EventEdit from "./pages/EventPage/EditPage";
+import EventRegistration from "./pages/EventPage/Registration";
+import ReviewRegistration from "./pages/ReviewPage/Registration";
+import ReviewDetail from "./pages/ReviewPage/DetailPage";
+import ReviewEdit from "./pages/ReviewPage/EditPage";
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -31,10 +40,20 @@ const routes = createBrowserRouter(
       <Route path="order" element={<OrderPage />} />
 
       <Route path="event" element={<EventPage />} />
+      <Route path="event/write" element={<EventRegistration />}/>
+      <Route path="event/:no" element={<EventDetail />}/>
+      <Route path="event/edit/:no" element={<EventEdit />}/>
+
       <Route path="review" element={<ReviewPage />} />
+      <Route path="review/write/:no" element={<ReviewRegistration />}/>
+      <Route path="review/:no" element={<ReviewDetail/>}/>
+      <Route path="review/edit/:no" element={<ReviewEdit />}/>
+
       <Route path="notice" element={<NoticePage />} />
-      <Route path="faq" element={<FaqPage />} />
-      <Route path="qa" element={<Q_APage />} />
+      <Route path="notice/write" element={<NoticeRegistration />}/>
+      <Route path="notice/:no" element={<NoticeDetail/>}/>
+      <Route path="notice/edit/:no" element={<NoticeEdit/>}/>
+
 
       <Route path="*" element={<NotFoundPage />} />
     </Route>,

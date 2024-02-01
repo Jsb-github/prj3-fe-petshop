@@ -22,7 +22,6 @@ function OrdersList(props) {
       {order.map((item) => (
         <div key={item.no}>
           <div className={styles.order_header}>
-            <h3>주문 번호_{item.no}</h3>
             <p>합계 :  {item.totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원</p>
           </div>
 
